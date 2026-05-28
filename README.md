@@ -5,7 +5,7 @@ to manage patients, doctors, and appointments — simulating a
 real-world pharma client requirement.
 
 ## Technologies Used
-- ASP.NET MVC (.NET 10)
+- ASP.NET MVC (.NET 9.0)
 - C#
 - SQL Server 2025 Express
 - SSMS (SQL Server Management Studio)
@@ -21,7 +21,14 @@ real-world pharma client requirement.
 - 👨‍⚕️ Doctor management - Add, View, Delete
 - 📅 Appointment booking - Book, View, Cancel
 - 🔗 JOIN queries linking patients and doctors
+- 🤖 AI Symptom Checker - describes symptoms, 
+     AI suggests doctor specialization
+- 💬 AI Dashboard Chatbot - ask questions about 
+     your data in plain English
 - ⚙️ CI/CD pipeline via GitHub Actions
+- 🔒 Secure API key management via .env and 
+     GitHub Secrets
+
 
 ## Architecture
 Browser → Controller → Model → SQL Server
@@ -53,10 +60,11 @@ Every push to main branch automatically:
 - Publishes release version
 - Shows build status on GitHub
 
-## Project Status
-✅ Fully functional locally
-🚧 Azure deployment - upcoming
-🚧 Docker containerization - upcoming
+## Api Key
+   -remane .env.example ---> .env
+   -generate tour oen personal key from Groq 
+   -Paste and Replace "your_groq_key_here"
+
 
 ## Author
 Devesh Kaushik
