@@ -1,0 +1,38 @@
+@{
+    ViewData["Title"] = "Book Appointment";
+}
+
+<div class="container mt-4">
+    <h2>Book New Appointment</h2>
+    <hr />
+
+    <form method="post" action="/Appointment/Create">
+        <div class="mb-3">
+            <label class="form-label">Select Patient</label>
+            <select name="PatientId" class="form-control" required>
+                <option value="">-- Select Patient --</option>
+                @foreach (var patient in ViewBag.Patients)
+                {
+                    <option value="@patient.Value">@patient.Text</option>
+                }
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Select Doctor</label>
+            <select name="DoctorId" class="form-control" required>
+                <option value="">-- Select Doctor --</option>
+                @foreach (var doctor in ViewBag.Doctors)
+                {
+                    <option value="@doctor.Value">@doctor.Text</option>
+                }
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Appointment Date & Time</label>
+            <input type="datetime-local" name="AppointmentDate" 
+                   class="form-control" required />
+        </div>
+        <button type="submit" class="btn btn-success">Book Appointment</button>
+        <a href="/Appointment/Index" class="btn btn-secondary ms-2">Cancel</a>
+    </form>
+</div>

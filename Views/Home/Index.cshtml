@@ -1,0 +1,89 @@
+﻿@model PatientManagementSystem.Models.DashboardViewModel
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">📊 Dashboard</h2>
+
+    <!-- Stats Cards Row -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card text-white bg-primary shadow">
+                <div class="card-body text-center">
+                    <h1 class="display-4 fw-bold">@Model.TotalPatients</h1>
+                    <p class="card-text fs-5">Total Patients</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-success shadow">
+                <div class="card-body text-center">
+                    <h1 class="display-4 fw-bold">@Model.TotalDoctors</h1>
+                    <p class="card-text fs-5">Total Doctors</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-warning shadow">
+                <div class="card-body text-center">
+                    <h1 class="display-4 fw-bold">@Model.TotalAppointments</h1>
+                    <p class="card-text fs-5">Total Appointments</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-danger shadow">
+                <div class="card-body text-center">
+                    <h1 class="display-4 fw-bold">@Model.TodayAppointments</h1>
+                    <p class="card-text fs-5">Today's Appointments</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart -->
+    <div class="card shadow">
+        <div class="card-header bg-dark text-white">
+            <h5 class="mb-0">📅 Appointments - Last 7 Days</h5>
+        </div>
+        <div class="card-body">
+            <canvas id="appointmentChart" height="100"></canvas>
+        </div>
+    </div>
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const labels = [@Html.Raw(string.Join(",", Model.ChartData.Select(x => $"'{x.Date}'")))];
+    const data = [@Html.Raw(string.Join(",", Model.ChartData.Select(x => x.Count)))];
+
+    const ctx = document.getElementById('appointmentChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Appointments',
+                data: data,
+                backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: { stepSize: 1 }
+                }
+            }
+        }
+    });
+</script>

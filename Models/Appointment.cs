@@ -1,0 +1,16 @@
+namespace PatientManagementSystem.Models
+{
+    public class Appointment
+    {
+        public int AppointmentId { get; set; }
+        public int PatientId { get; set; }
+        public int DoctorId { get; set; }
+        public DateTime AppointmentDate { get; set; }
+        public string Status { get; set; }
+
+        // These carry the joined names from DB
+        public string PatientName { get; set; }
+        public string DoctorName { get; set; }
+        public string Specialization { get; set; }
+    }
+}

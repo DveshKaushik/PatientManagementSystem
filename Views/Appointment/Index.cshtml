@@ -1,0 +1,48 @@
+@model List<PatientManagementSystem.Models.Appointment>
+
+@{
+    ViewData["Title"] = "Appointments";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>All Appointments</h2>
+        <a href="/Appointment/Create" class="btn btn-primary">+ Book Appointment</a>
+    </div>
+
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Patient</th>
+                <th>Doctor</th>
+                <th>Specialization</th>
+                <th>Date & Time</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var appt in Model)
+            {
+                <tr>
+                    <td>@appt.AppointmentId</td>
+                    <td>@appt.PatientName</td>
+                    <td>@appt.DoctorName</td>
+                    <td>@appt.Specialization</td>
+                    <td>@appt.AppointmentDate.ToString("dd MMM yyyy hh:mm tt")</td>
+                    <td>
+                        <span class="badge bg-success">@appt.Status</span>
+                    </td>
+                    <td>
+                        <a href="/Appointment/Delete/@appt.AppointmentId"
+                           class="btn btn-danger btn-sm"
+                           onclick="return confirm('Cancel this appointment?')">
+                            Cancel
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
