@@ -490,4 +490,3 @@ appsettings.*.json
 !appsettings.json
 # Never push environment files
 .env
-.env.*
