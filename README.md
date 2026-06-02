@@ -65,6 +65,13 @@ Every push to main branch automatically:
    -Generate tour oen personal key from Groq 
    -Paste and Replace "your_groq_key_here"
 
+## Docker setup 
+- clone the repo.
+- Create a .env file in the project root(refer Api Key)
+- Build and start the containers:
+- docker compose up --build
+- Once the containers are running, open:
+    http://localhost:5000
 
 ## Author
 Devesh Kaushik
