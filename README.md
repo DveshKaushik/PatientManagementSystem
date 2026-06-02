@@ -61,8 +61,8 @@ Every push to main branch automatically:
 - Shows build status on GitHub
 
 ## Api Key
-   -remane .env.example ---> .env
-   -generate tour oen personal key from Groq 
+   -Rename .env.example ---> .env
+   -Generate tour oen personal key from Groq 
    -Paste and Replace "your_groq_key_here"
 
 

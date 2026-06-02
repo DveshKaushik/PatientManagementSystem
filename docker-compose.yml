@@ -8,3 +8,5 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=Server=host.docker.internal\SQLEXPRESS;Database=PatientManagementDB;User ID=sa;Password=YourStr0ngPassword!;TrustServerCertificate=True
+      - GroqApiKey=${GROQ_API_KEY}
+      
