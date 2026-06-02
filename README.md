@@ -5,7 +5,7 @@ to manage patients, doctors, and appointments — simulating a
 real-world pharma client requirement.
 
 ## Technologies Used
-- ASP.NET MVC (.NET 9.0)
+- ASP.NET MVC (.NET 8.0)
 - C#
 - SQL Server 2025 Express
 - SSMS (SQL Server Management Studio)
